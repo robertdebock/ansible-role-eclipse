@@ -6,7 +6,7 @@ eclipse
 
 <a href="https://github.com/robertdebock/ansible-role-eclipse/actions"><img src="https://github.com/robertdebock/ansible-role-eclipse/workflows/GitHub%20Action/badge.svg"/></a>
 
-Install and configure eclipse on your system.
+Install eclipse and plugins on your system.
 
 Example Playbook
 ----------------
@@ -98,7 +98,6 @@ This role has been tested on these [container images](https://hub.docker.com/):
 |container|tags|
 |---------|----|
 |alpine|all|
-|archlinux|all|
 |debian|all|
 |el|7, 8|
 |fedora|all|

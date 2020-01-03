@@ -2,16 +2,13 @@
 galaxy_info:
   author: Robert de Bock
   role_name: eclipse
-  description: Install and configure eclipse on your system.
+  description: Install eclipse and plugins on your system.
   license: Apache-2.0
   company: none
   min_ansible_version: 2.7
 
   platforms:
     - name: Alpine
-      versions:
-        - all
-    - name: ArchLinux
       versions:
         - all
     - name: Debian

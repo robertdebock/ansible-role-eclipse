@@ -3,5 +3,5 @@
 # Ansible managed
 #
 repository:
-  description: Install and configure eclipse on your system.
+  description: Install eclipse and plugins on your system.
   homepage: https://robertdebock.nl/
