@@ -1,0 +1,23 @@
+---
+# tasks file for eclipse
+- name: unarchive eclipse
+  unarchive:
+    src: "{{ eclipse_archive }}"
+    dest: "{{ eclipse_install_path }}"
+    remote_src: yes
+    creates: "{{ eclipse_install_path }}/eclipse"
+  register: eclipse_unarchive_eclipse
+  until: eclipse_unarchive_eclipse is succeeded
+  retries: 3
+
+- name: link eclipse to /usr/bin/eclipse
+  file:
+    src: "{{ eclipse_install_path }}/eclipse/eclipse"
+    dest: /usr/bin/eclipse
+    state: link
+
+- name: install plugins
+  command: "{{ eclipse_plugin_install_command }} {{ item.name }}"
+  args:
+    creates: "{{ eclipse_install_path }}/eclipse/features/{{ item.name | regex_replace('.feature.group.*') }}*"
+  loop: "{{ eclipse_plugins }}"

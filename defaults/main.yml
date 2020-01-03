@@ -1,0 +1,20 @@
+---
+# defaults file for eclipse
+
+# The release to install.
+# See https://www.eclipse.org/downloads/packages/release
+eclipse_release: 2019-12
+
+# The release version to install, either: R, RC1, M3, M2 or M1.
+eclipse_release_version: R
+
+# The type of installation, either: jee, committers, cpp, dsl, java, javascript, jee, modeling, parallel, php, rcp, rust, scout or testing.
+eclipse_release_type: java
+
+eclipse_install_path: /tmp
+
+eclipse_plugins:
+    - name: org.tigris.subversion.subclipse.feature.group
+      repository: "http://subclipse.tigris.org/update_1.10.x"
+    - name: org.sonatype.m2e.egit.feature.feature.group
+      repository: "http://repo1.maven.org/maven2/.m2e/connectors/m2eclipse-egit/0.15.1/N/0.15.1.201806191431"
