@@ -2,7 +2,7 @@ eclipse
 =========
 
 <img src="https://docs.ansible.com/ansible-tower/3.2.4/html_ja/installandreference/_static/images/logo_invert.png" width="10%" height="10%" alt="Ansible logo" align="right"/>
-<a href="https://travis-ci.org/robertdebock/ansible-role-eclipse"> <img src="https://travis-ci.org/robertdebock/ansible-role-eclipse.svg?branch=master" alt="Build status"/></a> <img src="https://img.shields.io/ansible/role/d/"/> <img src="https://img.shields.io/ansible/quality/"/>
+<a href="https://travis-ci.org/robertdebock/ansible-role-eclipse"> <img src="https://travis-ci.org/robertdebock/ansible-role-eclipse.svg?branch=master" alt="Build status"/></a> <img src="https://img.shields.io/ansible/role/d/45618"/> <img src="https://img.shields.io/ansible/quality/45618"/>
 
 <a href="https://github.com/robertdebock/ansible-role-eclipse/actions"><img src="https://github.com/robertdebock/ansible-role-eclipse/workflows/GitHub%20Action/badge.svg"/></a>
 
@@ -33,6 +33,7 @@ The machine you are running this on, may need to be prepared, I use this playboo
 
   roles:
     - role: robertdebock.bootstrap
+    - role: robertdebock.core_dependencies
     - role: robertdebock.java
 ```
 
@@ -77,6 +78,7 @@ The following roles can be installed to ensure all requirements are met, using `
 ```yaml
 ---
 - robertdebock.bootstrap
+- robertdebock.core_dependencies
 - robertdebock.java
 
 ```
