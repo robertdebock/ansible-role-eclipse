@@ -29,7 +29,6 @@ jobs:
     strategy:
       matrix:
         image:
-          - alpine
           - debian
           - centos
           - fedora
