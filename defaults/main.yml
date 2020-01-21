@@ -14,7 +14,7 @@ eclipse_release_type: java
 eclipse_install_path: /tmp
 
 eclipse_plugins:
-    - name: org.tigris.subversion.subclipse.feature.group
-      repository: "http://subclipse.tigris.org/update_1.10.x"
-    - name: org.sonatype.m2e.egit.feature.feature.group
-      repository: "http://repo1.maven.org/maven2/.m2e/connectors/m2eclipse-egit/0.15.1/N/0.15.1.201806191431"
+  - name: org.tigris.subversion.subclipse.feature.group
+    repository: "http://subclipse.tigris.org/update_1.10.x"
+  - name: org.sonatype.m2e.egit.feature.feature.group
+    repository: "https://repo1.maven.org/maven2/.m2e/connectors/m2eclipse-egit/0.15.1/N/0.15.1.201806191431"
