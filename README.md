@@ -74,7 +74,6 @@ eclipse_plugins:
   # The org.eclipse.m2e.logback.configuration bundle was activated before
   # the state location was initialized.  Will retry after the state location
   # is initialized.
-447
   # - name: org.tigris.subversion.subclipse.feature.group
   #   repository: "http://subclipse.tigris.org/update_1.10.x"
   - name: org.sonatype.m2e.egit.feature.feature.group
