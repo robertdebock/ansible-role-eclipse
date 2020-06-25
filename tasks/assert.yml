@@ -17,21 +17,7 @@
     that:
       - eclipse_release_type is defined
       - eclipse_release_type | length > 0
-      - eclipse_release_type in
-          - "jee"
-          - "committers"
-          - "cpp"
-          - "dsl"
-          - "java"
-          - "javascript"
-          - "jee"
-          - "modeling"
-          - "parallel"
-          - "php"
-          - "rcp"
-          - "rust"
-          - "scout"
-          - "testing"
+      - eclipse_release_type in eclipse_acceptable_release_types
 
 - name: test if eclipse_plugins is set correctly
   assert:

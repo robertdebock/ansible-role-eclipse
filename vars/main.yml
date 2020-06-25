@@ -8,3 +8,5 @@ eclipse_archive: "{{ eclipse_archive_mirror }}/{{ eclipse_release }}/{{ eclipse_
 eclipse_default_repository: "http://download.eclipse.org/releases/{{ eclipse_release }}"
 
 eclipse_plugin_install_command: "eclipse -nosplash -application org.eclipse.equinox.p2.director -repository {{ item.repository | default(eclipse_default_repository) }} -installIU"
+
+eclipse_acceptable_release_types: "jee", "committers", "cpp", "dsl", "java", "javascript", "jee", "modeling", "parallel", "php", "rcp", "rust", "scout", "testing"
