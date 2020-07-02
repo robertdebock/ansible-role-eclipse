@@ -34,6 +34,7 @@
       - item.name | length > 0
       - item.repository is defined
       - item.repository | length > 0
+    quiet: yes
   loop: "{{ eclipse_plugins }}"
   when:
     - eclipse_plugins is defined
