@@ -9,9 +9,6 @@
     dest: "{{ eclipse_install_path }}"
     remote_src: yes
     creates: "{{ eclipse_install_path }}/eclipse"
-  register: eclipse_unarchive_eclipse
-  until: eclipse_unarchive_eclipse is succeeded
-  retries: 3
 
 - name: link eclipse to /usr/bin/eclipse
   file:
