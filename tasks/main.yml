@@ -9,12 +9,14 @@
     dest: "{{ eclipse_install_path }}"
     remote_src: yes
     creates: "{{ eclipse_install_path }}/eclipse"
+    mode: "0755"
 
 - name: link eclipse to /usr/bin/eclipse
   file:
     src: "{{ eclipse_install_path }}/eclipse/eclipse"
     dest: /usr/bin/eclipse
     state: link
+    mode: "0755"
 
 - name: install plugins
   command: "{{ eclipse_plugin_install_command }} {{ item.name }}"
