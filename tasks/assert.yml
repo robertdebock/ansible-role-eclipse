@@ -11,7 +11,7 @@
     that:
       - eclipse_release_version is defined
       - eclipse_release_version | length > 0
-      - eclipse_release_version in ["R", "RC1", "M3", "M2", "M1"]
+      - eclipse_release_version in [ "R", "RC1", "M3", "M2", "M1" ]
     quiet: yes
 
 - name: test if eclipse_release_type is set correctly
