@@ -3,14 +3,12 @@
   assert:
     that:
       - eclipse_release is defined
-      - eclipse_release | length > 0
     quiet: yes
 
 - name: test if eclipse_release_version is set correctly
   assert:
     that:
       - eclipse_release_version is defined
-      - eclipse_release_version | length > 0
       - eclipse_release_version in [ "R", "RC1", "M3", "M2", "M1" ]
     quiet: yes
 
@@ -18,14 +16,12 @@
   assert:
     that:
       - eclipse_release_type is defined
-      - eclipse_release_type | length > 0
       - eclipse_release_type in eclipse_acceptable_release_types
     quiet: yes
 
 - name: test if eclipse_plugins is set correctly
   assert:
     that:
-      - eclipse_plugins | length > 0
       - eclipse_plugins is iterable
     quiet: yes
   when:
@@ -35,9 +31,7 @@
   assert:
     that:
       - item.name is defined
-      - item.name | length > 0
       - item.repository is defined
-      - item.repository | length > 0
     quiet: yes
   loop: "{{ eclipse_plugins }}"
   loop_control:
