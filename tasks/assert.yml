@@ -1,4 +1,5 @@
 ---
+
 - name: test if eclipse_release is set correctly
   assert:
     that:
