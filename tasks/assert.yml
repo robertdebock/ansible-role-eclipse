@@ -4,12 +4,14 @@
   assert:
     that:
       - eclipse_release is defined
+      - eclipse_release is string
     quiet: yes
 
 - name: test if eclipse_release_version is set correctly
   assert:
     that:
       - eclipse_release_version is defined
+      - eclipse_release_version is string
       - eclipse_release_version in [ "R", "RC1", "M3", "M2", "M1" ]
     quiet: yes
 
@@ -17,6 +19,7 @@
   assert:
     that:
       - eclipse_release_type is defined
+      - eclipse_release_type is string
       - eclipse_release_type in eclipse_acceptable_release_types
     quiet: yes
 
@@ -32,7 +35,9 @@
   assert:
     that:
       - item.name is defined
+      - item.name is string
       - item.repository is defined
+      - item.repository is sting
     quiet: yes
   loop: "{{ eclipse_plugins }}"
   loop_control:
