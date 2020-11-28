@@ -37,7 +37,7 @@
       - item.name is defined
       - item.name is string
       - item.repository is defined
-      - item.repository is sting
+      - item.repository is string
     quiet: yes
   loop: "{{ eclipse_plugins }}"
   loop_control:
