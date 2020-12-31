@@ -25,3 +25,5 @@
   args:
     creates: "{{ eclipse_install_path }}/eclipse/features/{{ item.name | regex_replace('.feature.group.*') }}*"
   loop: "{{ eclipse_plugins }}"
+  loop_control:
+    label: "{{ item.name }}"
