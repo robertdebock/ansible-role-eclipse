@@ -45,7 +45,7 @@ These variables are set in `defaults/main.yml`:
 
 # The release to install.
 # See https://www.eclipse.org/downloads/packages/release
-eclipse_release: 2019-12
+eclipse_release: 2020-12
 
 # The release version to install, either: R, RC1, M3, M2 or M1.
 eclipse_release_version: R
