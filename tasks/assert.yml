@@ -22,6 +22,22 @@
       - eclipse_release_type is string
       - eclipse_release_type in eclipse_acceptable_release_types
     quiet: yes
+  vars:
+    eclipse_acceptable_release_types:
+      - jee
+      - committers
+      - cpp
+      - dsl
+      - java
+      - javascript
+      - jee
+      - modeling
+      - parallel
+      - php
+      - rcp
+      - rust
+      - scout
+      - testing
 
 - name: test if eclipse_plugins is set correctly
   assert:
