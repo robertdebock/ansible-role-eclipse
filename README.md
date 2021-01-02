@@ -53,7 +53,7 @@ eclipse_release_version: R
 # The type of installation, either: jee, committers, cpp, dsl, java, javascript, jee, modeling, parallel, php, rcp, rust, scout or testing.
 eclipse_release_type: java
 
-eclipse_install_path: /tmp
+eclipse_install_path: /opt
 
 eclipse_plugins:
   # This plugin causes an issue:
