@@ -7,7 +7,7 @@
   delegate_to: localhost
 
 - name: unarchive eclipse
-  unarchive:
+  ansible.builtin.unarchive:
     src: "{{ eclipse_archive }}"
     dest: "{{ eclipse_install_path }}"
     remote_src: yes
@@ -15,7 +15,7 @@
     mode: "0755"
 
 - name: link eclipse to /usr/bin/eclipse
-  file:
+  ansible.builtin.file:
     src: "{{ eclipse_install_path }}/eclipse/eclipse"
     dest: /usr/bin/eclipse
     state: link
