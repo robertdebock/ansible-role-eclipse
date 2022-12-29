@@ -11,7 +11,12 @@ eclipse_release_version: R
 # The type of installation, either: jee, committers, cpp, dsl, java, javascript, jee, modeling, parallel, php, rcp, rust, scout or testing.
 eclipse_release_type: java
 
-eclipse_install_path: /opt
+# The path where to install eclipse.
+eclipse_install_path: /opt/eclipse-{{ eclipse_release }}
+
+# What path(s) would you like to link to the eclipse installation?
+eclipse_link_paths:
+  - /opt/eclipse
 
 eclipse_plugins: []
   # This plugin causes an issue:

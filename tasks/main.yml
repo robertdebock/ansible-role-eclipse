@@ -21,6 +21,15 @@
     state: link
     mode: "0755"
 
+- name: Link eclipse to requested paths
+  ansible.builtin.file:
+    src: "{{ eclipse_install_path }}"
+    dest: "{{ item }}"
+    state: link
+  loop: "{{ eclipse_link_paths }}"
+  when:
+    - eclipse_link_paths | length > 0
+
 - name: Install plugins
   ansible.builtin.command:
     cmd: "{{ eclipse_plugin_install_command }} \"{{ item.name }}\""
@@ -28,3 +37,9 @@
   loop: "{{ eclipse_plugins }}"
   loop_control:
     label: "{{ item.name }}"
+
+- name: Create desktop icon for eclipse
+  ansible.builtin.template:
+    src: eclipse.desktop.j2
+    dest: /usr/share/applications/eclipse-{{ eclipse_release }}.desktop
+    mode: "0755"
