@@ -11,6 +11,9 @@ eclipse_release_version: R
 # The type of installation, either: jee, committers, cpp, dsl, java, javascript, jee, modeling, parallel, php, rcp, rust, scout or testing.
 eclipse_release_type: java
 
+# Where to download eclipse to. The installation will later be moved to a versioned path.
+eclipse_tmp_path: /tmp
+
 # The path where to install eclipse.
 eclipse_install_path: /opt/eclipse-{{ eclipse_release }}
 

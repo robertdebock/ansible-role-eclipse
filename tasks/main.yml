@@ -6,13 +6,33 @@
   run_once: yes
   delegate_to: localhost
 
-- name: Unarchive eclipse
+- name: Create the temporary directory
+  ansible.builtin.file:
+    path: "{{ eclipse_tmp_path }}"
+    recurse: yes
+    state: directory
+    mode: "0755"
+
+- name: Unarchive eclipse to temporary directory
   ansible.builtin.unarchive:
     src: "{{ eclipse_archive }}"
+    dest: "{{ eclipse_tmp_path }}/eclipse-{{ eclipse_release }}"
+    remote_src: yes
+    creates: "{{ eclipse_tmp_path }}/eclipse-{{ eclipse_release }}/eclipse"
+    mode: "0755"
+
+- name: Create the installation directory
+  ansible.builtin.file:
+    path: "{{ eclipse_install_path }}"
+    recurse: yes
+    state: directory
+    mode: "0755"
+
+- name: Copy temporary installation to the installation destination
+  ansible.builtin.copy:
+    src: "{{ eclipse_tmp_path }}/eclipse-{{ eclipse_release }}"
     dest: "{{ eclipse_install_path }}"
     remote_src: yes
-    creates: "{{ eclipse_install_path }}/eclipse"
-    mode: "0755"
 
 - name: Link eclipse to /usr/bin/eclipse
   ansible.builtin.file:
