@@ -37,7 +37,7 @@
 
 - name: Link eclipse to /usr/bin/eclipse
   ansible.builtin.file:
-    src: "{{ eclipse_install_path }}/eclipse/eclipse"
+    src: "{{ eclipse_install_path }}/eclipse"
     dest: /usr/bin/eclipse
     state: link
     mode: "0755"
@@ -54,7 +54,7 @@
 - name: Install plugins
   ansible.builtin.command:
     cmd: "{{ eclipse_plugin_install_command }} \"{{ item.name }}\""
-    creates: "{{ eclipse_install_path }}/eclipse/features/{{ item.name | regex_replace('.feature.group.*') }}*"
+    creates: "{{ eclipse_install_path }}/features/{{ item.name | regex_replace('.feature.group.*') }}*"
   loop: "{{ eclipse_plugins }}"
   loop_control:
     label: "{{ item.name }}"
