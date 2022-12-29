@@ -33,6 +33,7 @@
     src: "{{ eclipse_tmp_path }}/eclipse-{{ eclipse_release }}"
     dest: "{{ eclipse_install_path }}"
     remote_src: yes
+    mode: "0755"
 
 - name: Link eclipse to /usr/bin/eclipse
   ansible.builtin.file:
