@@ -19,18 +19,16 @@ This example is taken from `molecule/default/converge.yml` and is tested on each
 
   roles:
     - role: robertdebock.eclipse
-      eclipse_link_paths:
-        - /opt/eclipse/eclipse-06
-    - role: robertdebock.eclipse
-      eclipse_release: 2022-09
-      eclipse_install_path: /opt/eclipse-{{ eclipse_release }}
-      eclipse_link_paths:
-        - /opt/eclipse/eclipse
-        - /opt/eclipse/eclipse-09
-    - role: robertdebock.eclipse
-      eclipse_release: 2022-12
-      eclipse_install_path: /opt/eclipse-{{ eclipse_release }}
-      eclipse_link_paths: []
+    # - role: robertdebock.eclipse
+    #   eclipse_release: 2022-09
+    #   eclipse_install_path: /opt/eclipse-{{ eclipse_release }}
+    #   eclipse_link_paths:
+    #     - /opt/eclipse-09
+    #     - /opt/eclipse-202209
+    # - role: robertdebock.eclipse
+    #   eclipse_release: 2022-12
+    #   eclipse_install_path: /opt/eclipse-{{ eclipse_release }}
+    #   eclipse_link_paths: []
 ```
 
 The machine needs to be prepared. In CI this is done using `molecule/default/prepare.yml`:
