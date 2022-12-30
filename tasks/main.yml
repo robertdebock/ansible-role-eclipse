@@ -33,6 +33,7 @@
     src: "{{ eclipse_tmp_path }}/eclipse-{{ eclipse_release }}/eclipse/"
     dest: "{{ eclipse_install_path }}/"
     remote_src: yes
+    mode: "0755"
   delegate_to: "{{ inventory_hostname }}"
 
 - name: Link eclipse to /usr/bin/eclipse
