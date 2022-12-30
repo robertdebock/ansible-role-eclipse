@@ -28,12 +28,12 @@
     state: directory
     mode: "0755"
 
-- name: Copy temporary installation to the installation destination
+- name: Copy temporary installation files to the installation destination
   ansible.builtin.copy:
-    src: "{{ eclipse_tmp_path }}/eclipse-{{ eclipse_release }}"
-    dest: "{{ eclipse_install_path }}"
+    src: "{{ eclipse_tmp_path }}/eclipse-{{ eclipse_release }}/eclipse/"
+    dest: "{{ eclipse_install_path }}/"
     remote_src: yes
-    mode: "0755"
+  delegate_to: "{{ inventory_hostname }}"
 
 - name: Link eclipse to /usr/bin/eclipse
   ansible.builtin.file:
