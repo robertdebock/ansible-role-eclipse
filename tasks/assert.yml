@@ -84,3 +84,26 @@
       - eclipse_tmp_path is defined
       - eclipse_tmp_path is iterable
     quiet: yes
+
+- name: Test if eclipse_install_lombok is set correctly
+  ansible.builtin.assert:
+    that:
+      - eclipse_install_lombok is defined
+      - eclipse_install_lombok is bool
+    quiet: yes
+
+- name: Test if eclipse_lombok_version is set correctly
+  ansible.builtin.assert:
+    that:
+      - eclipse_lombok_version is defined
+      - eclipse_lombok_version is string
+    quiet: yes
+  when:
+    - eclipse_install_lombok
+
+- name: Test if eclipse_install_maven is set correctly
+  ansible.builtin.assert:
+    that:
+      - eclipse_install_maven is defined
+      - eclipse_install_maven is bool
+    quiet: yes

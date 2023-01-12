@@ -65,3 +65,33 @@
     src: eclipse.desktop.j2
     dest: /usr/share/applications/eclipse-{{ eclipse_release }}.desktop
     mode: "0755"
+
+- name: Install Lombok into Eclipse
+  when:
+    - eclipse_install_lombok
+  block:
+    - name: Download Lombok
+      ansible.builtin.get_url:
+        url: https://projectlombok.org/downloads/lombok-{{ eclipse_lombok_version }}.jar
+        dest: "{{ eclipse_install_path }}/lombok.jar"
+        mode: "0664"
+
+    - name: Store Lombok version
+      ansible.builtin.copy:
+        dest: "{{ eclipse_install_path }}/lombok.jar.version"
+        content: |
+          {{ lombok_version }}
+        mode: "0664"
+
+    - name: Configure Lombok in Eclipse ini file
+      ansible.builtin.lineinfile:
+        path: "{{ eclipse_install_path }}/eclipse.ini"
+        line: "-javaagent:{{ eclipse_install_path }}/lombok.jar"
+        mode: "0664"
+
+- name: Installeer Maven
+  ansible.builtin.package:
+    name: maven
+    state: present
+  when:
+    - eclipse_install_maven
