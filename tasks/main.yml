@@ -80,7 +80,7 @@
       ansible.builtin.copy:
         dest: "{{ eclipse_install_path }}/lombok.jar.version"
         content: |
-          {{ lombok_version }}
+          {{ eclipse_lombok_version }}
         mode: "0664"
 
     - name: Configure Lombok in Eclipse ini file
