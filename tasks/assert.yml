@@ -89,7 +89,7 @@
   ansible.builtin.assert:
     that:
       - eclipse_install_lombok is defined
-      - eclipse_install_lombok is bool
+      - eclipse_install_lombok is boolean
     quiet: yes
 
 - name: Test if eclipse_lombok_version is set correctly
@@ -105,5 +105,5 @@
   ansible.builtin.assert:
     that:
       - eclipse_install_maven is defined
-      - eclipse_install_maven is bool
+      - eclipse_install_maven is boolean
     quiet: yes
