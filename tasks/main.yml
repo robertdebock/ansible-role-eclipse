@@ -26,23 +26,33 @@
     path: "{{ eclipse_install_path }}"
   register: eclipse_install_path_state
 
-- name: Create the installation directory
-  ansible.builtin.file:
-    path: "{{ eclipse_install_path }}"
-    recurse: yes
-    state: directory
-    mode: "0755"
+- name: Install Eclipse
   when:
     - eclipse_install_path_state.stat.isdir is defined and
-      eclipse_install_path_state.stat.isdir
+      not eclipse_install_path_state.stat.isdir
+  block:
+    - name: Create the installation directory
+      ansible.builtin.file:
+        path: "{{ eclipse_install_path }}"
+        recurse: yes
+        state: directory
+        mode: "0755"
 
-- name: Copy temporary installation files to the installation destination
-  ansible.builtin.copy:
-    src: "{{ eclipse_tmp_path }}/eclipse-{{ eclipse_release }}/eclipse/"
-    dest: "{{ eclipse_install_path }}/"
-    remote_src: yes
-    mode: "0755"
-  delegate_to: "{{ inventory_hostname }}"
+    - name: Copy temporary installation files to the installation destination
+      ansible.builtin.copy:
+        src: "{{ eclipse_tmp_path }}/eclipse-{{ eclipse_release }}/eclipse/"
+        dest: "{{ eclipse_install_path }}/"
+        remote_src: yes
+        mode: "0755"
+      delegate_to: "{{ inventory_hostname }}"
+
+    - name: Install plugins
+      ansible.builtin.command:
+        cmd: "{{ eclipse_plugin_install_command }} \"{{ item.name }}\""
+        creates: "{{ eclipse_install_path }}/features/{{ item.name | regex_replace('.feature.group.*') }}*"
+      loop: "{{ eclipse_plugins }}"
+      loop_control:
+        label: "{{ item.name }}"
 
 - name: Link eclipse to /usr/bin/eclipse
   ansible.builtin.file:
@@ -59,14 +69,6 @@
   loop: "{{ eclipse_link_paths }}"
   when:
     - eclipse_link_paths | length > 0
-
-- name: Install plugins
-  ansible.builtin.command:
-    cmd: "{{ eclipse_plugin_install_command }} \"{{ item.name }}\""
-    creates: "{{ eclipse_install_path }}/features/{{ item.name | regex_replace('.feature.group.*') }}*"
-  loop: "{{ eclipse_plugins }}"
-  loop_control:
-    label: "{{ item.name }}"
 
 - name: Create desktop icon for eclipse
   ansible.builtin.template:
