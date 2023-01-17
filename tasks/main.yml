@@ -28,8 +28,7 @@
 
 - name: Install Eclipse
   when:
-    - eclipse_install_path_state.stat.isdir is defined and
-      not eclipse_install_path_state.stat.isdir
+    - not eclipse_install_path_state.stat.exists
   block:
     - name: Create the installation directory
       ansible.builtin.file:
