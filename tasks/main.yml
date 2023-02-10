@@ -53,6 +53,13 @@
       loop_control:
         label: "{{ item.name }}"
 
+- name: Link eclipse to /usr/bin/eclipse-VERSION
+  ansible.builtin.file:
+    src: "{{ eclipse_install_path }}/eclipse"
+    dest: /usr/bin/eclipse-{{ eclipse_release }}
+    state: link
+    mode: "0755"
+
 - name: Link eclipse to /usr/bin/eclipse
   ansible.builtin.file:
     src: "{{ eclipse_install_path }}/eclipse"
