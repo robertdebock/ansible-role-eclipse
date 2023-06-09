@@ -5,6 +5,7 @@
     that:
       - eclipse_release is defined
       - eclipse_release is string
+      - eclipse_release is not none
     quiet: yes
 
 - name: assert | Test if eclipse_release_version is set correctly
@@ -52,8 +53,10 @@
     that:
       - item.name is defined
       - item.name is string
+      - item.name is not none
       - item.repository is defined
       - item.repository is string
+      - item.repository is not none
     quiet: yes
   loop: "{{ eclipse_plugins }}"
   loop_control:
@@ -73,6 +76,7 @@
     that:
       - item is defined
       - item is string
+      - item is not none
     quiet: yes
   loop: "{{ eclipse_link_paths }}"
   when:
@@ -97,6 +101,7 @@
     that:
       - eclipse_lombok_version is defined
       - eclipse_lombok_version is string
+      - eclipse_lombok_version is not none
     quiet: yes
   when:
     - eclipse_install_lombok
