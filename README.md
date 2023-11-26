@@ -1,4 +1,4 @@
-# Ansible role [eclipse](#eclipse)
+# [Ansible role eclipse](#eclipse)
 
 Install eclipse and plugins on your system.
 
