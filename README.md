@@ -18,14 +18,14 @@ This example is taken from [`molecule/default/converge.yml`](https://github.com/
   gather_facts: true
 
   roles:
-    - role: ansible-role-eclipse
-    # - role: ansible-role-eclipse
+    - role: robertdebock.eclipse
+    # - role: robertdebock.eclipse
     #   eclipse_release: 2022-09
     #   eclipse_install_path: /opt/eclipse-{{ eclipse_release }}
     #   eclipse_link_paths:
     #     - /opt/eclipse-09
     #     - /opt/eclipse-202209
-    # - role: ansible-role-eclipse
+    # - role: robertdebock.eclipse
     #   eclipse_release: 2022-12
     #   eclipse_install_path: /opt/eclipse-{{ eclipse_release }}
     #   eclipse_link_paths: []
