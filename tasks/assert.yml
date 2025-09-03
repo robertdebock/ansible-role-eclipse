@@ -86,7 +86,8 @@
   ansible.builtin.assert:
     that:
       - eclipse_tmp_path is defined
-      - eclipse_tmp_path is iterable
+      - eclipse_tmp_path is string
+      - eclipse_tmp_path is not none
     quiet: true
 
 - name: assert | Test eclipse_install_lombok

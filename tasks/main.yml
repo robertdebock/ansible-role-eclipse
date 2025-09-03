@@ -34,7 +34,8 @@
     dest: "{{ eclipse_install_path }}/"
     remote_src: true
     mode: "0755"
-    force: false
+    owner: root
+    group: root
 
 - name: Install plugins
   ansible.builtin.command:
