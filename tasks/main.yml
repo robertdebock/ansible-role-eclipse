@@ -34,6 +34,7 @@
     dest: "{{ eclipse_install_path }}/"
     remote_src: true
     mode: "0755"
+    force: false
 
 - name: Install plugins
   ansible.builtin.command:
@@ -76,14 +77,12 @@
   when:
     - eclipse_install_lombok
   block:
-    # TODO: This task is not idempotent
     - name: Download Lombok
       ansible.builtin.get_url:
         url: https://projectlombok.org/downloads/lombok-{{ eclipse_lombok_version }}.jar
         dest: "{{ eclipse_install_path }}/lombok.jar"
         mode: "0664"
 
-    # TODO: This task is not idempotent
     - name: Store Lombok version
       ansible.builtin.copy:
         dest: "{{ eclipse_install_path }}/lombok.jar.version"
