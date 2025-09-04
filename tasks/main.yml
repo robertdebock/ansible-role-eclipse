@@ -28,6 +28,11 @@
     state: directory
     mode: "0755"
 
+- name: Check if Eclipse is already installed
+  ansible.builtin.stat:
+    path: "{{ eclipse_install_path }}/eclipse"
+  register: eclipse_installed
+
 - name: Copy temporary installation files to the installation destination
   ansible.builtin.copy:
     src: "{{ eclipse_tmp_path }}/eclipse-{{ eclipse_release }}/eclipse/"
@@ -36,6 +41,8 @@
     mode: "0755"
     owner: root
     group: root
+  when:
+    - not eclipse_installed.stat.exists
 
 - name: Install plugins
   ansible.builtin.command:
