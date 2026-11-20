@@ -58,7 +58,7 @@ The default values for the variables are set in [`defaults/main.yml`](https://gi
 
 # The release to install.
 # See https://www.eclipse.org/downloads/packages/release
-eclipse_release: 2025-06
+eclipse_release: 2026-09
 
 # The release version to install, either: R, RC1, M3, M2 or M1.
 eclipse_release_version: R
@@ -76,7 +76,7 @@ eclipse_install_path: /opt/eclipse-{{ eclipse_release }}
 # The mirrors keep the 3 last versions.
 # eclipse_archive_mirror: "https://ftp.fau.de/eclipse/technology/epp/downloads/release"
 # eclipse_archive_mirror: "https://download.eclipse.org/technology/epp/downloads/release"
-eclipse_archive_mirror: "http://ftp.snt.utwente.nl/pub/software/eclipse/technology/epp/downloads/release"
+eclipse_archive_mirror: "https://download.eclipse.org/technology/epp/downloads/release"
 
 # What path(s) would you like to link to the eclipse installation?
 eclipse_link_paths:
@@ -134,11 +134,7 @@ This role has been tested on these [container images](https://hub.docker.com/u/r
 |[Fedora](https://hub.docker.com/r/robertdebock/fedora)|all|
 |[Ubuntu](https://hub.docker.com/r/robertdebock/ubuntu)|all|
 
-The minimum version of Ansible required is 2.12, tests have been done on:
-
-- The previous version.
-- The current version.
-- The development version.
+The minimum version of Ansible (ansible-core) required is 2.20, tests are done with the latest release of ansible-core.
 
 If you find issues, please register them on [GitHub](https://github.com/robertdebock/ansible-role-eclipse/issues).
 
